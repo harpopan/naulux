@@ -34,7 +34,8 @@ Si no encaja en ninguna, va a `Varios/`.
 | `Informatica/` | Informática general / IT | `CHK`, `REF` | Instalación equipo, Linux Mint |
 | `Proyectos/` | Hubs de proyecto | `PROY`, `LOG`, `MAP`, `SPEC` | Nautilus, Akkorogotchi, Vivero |
 | `Proyectos/Licencias/` | Licencias de proyectos | `LEGAL`, `REF` | Licencias de distribución |
-| `Salud/` | Salud y bienestar | `ART`, `TIP` | Natación, consejos |
+| `Salud/` | Salud y bienestar | `ART`, `TIP` | Consejos varios |
+| `Salud/Natacion/` | Natación | `ART`, `TIP` | Técnica, aguas abiertas, entrenamiento |
 | `Varios/` | Miscelánea sin otra ubicación | `NOTA`, `PROMPT` | Lore DnD, nombres vikingos |
 
 ## Carpeta por tipo documental

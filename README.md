@@ -7,10 +7,11 @@
 Naulux se invoca mediante comandos desde el chat del agente:
 
 | Comando | Acción |
-|---|---|
+|---|---|---|
+| `ayuda` | Muestra esta tabla de comandos disponibles |
 | `procesa` | Procesa **todos** los documentos pendientes en `documentos_bruto/` |
 | `procesa <archivo>` | Procesa un archivo específico (ej: `procesa claudeprompts-valorar.md`) |
-| `procesa ayuda` | Muestra el resumen de uso desde AGENTS.md |
+| `procesa ayuda` | Alias de `ayuda` |
 
 ## Flujo de procesamiento
 

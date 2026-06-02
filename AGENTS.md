@@ -6,10 +6,11 @@ Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si
 ## Activación (solo bajo demanda)
 
 | Comando | Acción |
-|---|---|
+|---|---|---|
+| `ayuda` | Muestra esta tabla de comandos disponibles |
 | `procesa` | Procesa **todos** los documentos pendientes en `documentos_bruto/` |
 | `procesa <archivo>` | Procesa un archivo específico (ej: `procesa claudeprompts-valorar.md`) |
-| `procesa ayuda` | Muestra este resumen |
+| `procesa ayuda` | Alias de `ayuda` |
 
 ## Flujo por cada documento
 
@@ -27,9 +28,15 @@ Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si
    - Crear la carpeta dentro de `camara_procesada/` si no existe
    - Si hay duda, preguntar al usuario
 5. **Agregar frontmatter YAML** con fecha, versión, idioma y estado si el documento lo merece
-6. **Agregar bloque `> [!summary]`** con un resumen del documento si lo merece
-7. **Escribir** el archivo final en `camara_procesada/` (en la carpeta determinada)
-8. **Mover el original** a `documentos_bruto/_procesados/`
+6. **Agregar título interno** debajo del frontmatter con `# Título completo del documento`
+7. **Agregar bloque `> [!summary]`** con un resumen del documento si lo merece
+8. **Escribir** el archivo final en `camara_procesada/` (en la carpeta determinada)
+9. **Mover el original** a `documentos_bruto/_procesados/`
+
+## Reglas de título y nombre de archivo
+
+- El **título interno** (`# Título completo`) refleja el contenido real del documento con total fidelidad
+- El **nombre del archivo** se sintetiza a partir de ese título, eliminando artículos determinantes (`el`, `la`, `los`, `las`) y similares que no aporten valor semántico al nombre
 
 ## Taxonomía de nombrado
 
