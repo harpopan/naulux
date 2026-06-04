@@ -1,4 +1,6 @@
-# Nautilus — Procesador de Documentos
+# Naulux — Companion de Procesamiento de Documentos
+
+**Versión:** 1.2
 
 ## Propósito
 Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si procede, estructurarlos y moverlos a `camara_procesada/`.
