@@ -1,6 +1,6 @@
 # Naulux
 
-**Naulux** es el agente principal del sistema de procesamiento documental del *Vivero*. Gestiona el flujo de documentos en bruto desde `documentos_bruto/` hasta `camara_procesada/`, aplicando clasificación, traducción, renombrado y estructuración.
+**Naulux** es el agente principal del sistema de procesamiento documental del *Vivero*. Gestiona el flujo de documentos en bruto desde `0_DatosBrutos/` hasta `1_DatosProcesados/`, aplicando clasificación, traducción, renombrado y estructuración.
 
 ## Uso
 
@@ -9,20 +9,20 @@ Naulux se invoca mediante comandos desde el chat del agente:
 | Comando | Acción |
 |---|---|---|
 | `ayuda` | Muestra esta tabla de comandos disponibles |
-| `procesa` | Procesa **todos** los documentos pendientes en `documentos_bruto/` |
+| `procesa` | Procesa **todos** los documentos pendientes en `0_DatosBrutos/` |
 | `procesa <archivo>` | Procesa un archivo específico (ej: `procesa claudeprompts-valorar.md`) |
 | `procesa ayuda` | Alias de `ayuda` |
 
 ## Flujo de procesamiento
 
-1. **Leer** el documento desde `documentos_bruto/`
+1. **Leer** el documento desde `0_DatosBrutos/`
 2. **Detectar idioma** — inglés se traduce a español castellano; castellano se conserva
 3. **Renombrar** con la taxonomía oficial: `[TIPO] - [Tema principal] (calificador).md`
-4. **Ubicar** en la carpeta temática correspondiente dentro de `camara_procesada/`
+4. **Ubicar** en la carpeta temática correspondiente dentro de `1_DatosProcesados/`
 5. **Agregar frontmatter** YAML (versión, estado, etc.)
 6. **Agregar resumen** en bloque `> [!summary]`
-7. **Escribir** el archivo final en `camara_procesada/`
-8. **Mover** el original a `documentos_bruto/_procesados/`
+7. **Escribir** el archivo final en `1_DatosProcesados/`
+8. **Mover** el original a `0_DatosBrutos/_procesados/`
 
 ## Taxonomía
 
@@ -35,9 +35,9 @@ naulux/
 ├── AGENTS.md              ← Instrucciones del agente
 ├── META - Guideline oficial.md   ← Taxonomía y reglas
 ├── META - Estructura de Carpetas.md  ← Reglas de ubicación
-├── documentos_bruto/      ← Documentos pendientes de procesar
+├── 0_DatosBrutos/      ← Documentos pendientes de procesar
 │   └── _procesados/       ← Originales ya procesados
-├── camara_procesada/      ← Documentos ya clasificados y estructurados
+├── 1_DatosProcesados/      ← Documentos ya clasificados y estructurados
 │   ├── CiberSeguridad/
 │   ├── Crecimiento/
 │   ├── IA/

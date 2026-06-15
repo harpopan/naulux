@@ -1,0 +1,4 @@
+- Give the player a question they want to answer
+- The first expression of a game's tone is music
+- Ask yourself why is this a game and not another medium?
+- Make your game workd feel alive through particle effects

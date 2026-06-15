@@ -3,20 +3,20 @@
 **Versión:** 1.2
 
 ## Propósito
-Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si procede, estructurarlos y moverlos a `camara_procesada/`.
+Procesar documentos en bruto de `0_DatosBrutos/`, analizarlos, traducirlos si procede, estructurarlos y moverlos a `1_DatosProcesados/`.
 
 ## Activación (solo bajo demanda)
 
 | Comando | Acción |
 |---|---|---|
 | `ayuda` | Muestra esta tabla de comandos disponibles |
-| `procesa` | Procesa **todos** los documentos pendientes en `documentos_bruto/` |
+| `procesa` | Procesa **todos** los documentos pendientes en `0_DatosBrutos/` |
 | `procesa <archivo>` | Procesa un archivo específico (ej: `procesa claudeprompts-valorar.md`) |
 | `procesa ayuda` | Alias de `ayuda` |
 
 ## Flujo por cada documento
 
-1. **Leer** el archivo desde `documentos_bruto/`
+1. **Leer** el archivo desde `0_DatosBrutos/`
 2. **Detectar idioma**:
    - Inglés → traducir a español castellano
    - Castellano → mantener intacto
@@ -25,15 +25,15 @@ Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si
    - Formato: `[TIPO] - [Tema principal] (calificador opcional).md`
    - El calificador solo se usa para desambiguar si dos documentos compartieran prefijo y tema
    - Sin números de versión en el nombre (van en frontmatter)
-4. **Determinar carpeta destino** según las reglas de `META - Estructura de Carpetas.md`:
+4. **Determinar carpeta destino** según las reglas de `- Meta/META - Estructura de Carpetas.md`:
    - Elegir carpeta temática, por tipo o `Varios/` según corresponda
-   - Crear la carpeta dentro de `camara_procesada/` si no existe
+    - Crear la carpeta dentro de `1_DatosProcesados/` si no existe
    - Si hay duda, preguntar al usuario
 5. **Agregar frontmatter YAML** con fecha, versión, idioma y estado si el documento lo merece
 6. **Agregar título interno** debajo del frontmatter con `# Título completo del documento`
 7. **Agregar bloque `> [!summary]`** con un resumen del documento si lo merece
-8. **Escribir** el archivo final en `camara_procesada/` (en la carpeta determinada)
-9. **Mover el original** a `documentos_bruto/_procesados/`
+8. **Escribir** el archivo final en `1_DatosProcesados/` (en la carpeta determinada)
+9. **Mover el original** a `0_DatosBrutos/_procesados/`
 
 ## Reglas de título y nombre de archivo
 
@@ -42,7 +42,7 @@ Procesar documentos en bruto de `documentos_bruto/`, analizarlos, traducirlos si
 
 ## Taxonomía de nombrado
 
-Al iniciar cualquier operación `procesa`, leer el archivo **`META - Guideline oficial.md`** que contiene:
+Al iniciar cualquier operación `procesa`, leer el archivo **`- Meta/META - Guideline oficial.md`** que contiene:
 - Regla maestra de nombrado
 - Taxonomía oficial V2 (tabla completa con 20 prefijos)
 - Formato base y reglas operativas
@@ -53,7 +53,7 @@ Ese archivo es la fuente única de verdad. Si se actualiza, el agente trabajará
 
 ## Reglas de ubicación
 
-Al iniciar cualquier operación `procesa`, leer el archivo **`META - Estructura de Carpetas.md`** que define:
+Al iniciar cualquier operación `procesa`, leer el archivo **`- Meta/META - Estructura de Carpetas.md`** que define:
 - Jerarquía de carpetas
 - Reglas de asignación temática vs. por tipo documental
 - Subcarpetas específicas
