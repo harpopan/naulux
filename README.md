@@ -26,21 +26,23 @@ Naulux se invoca mediante comandos desde el chat del agente:
 
 ## Taxonomía
 
-Naulux usa 20 prefijos (tipos documentales): `META`, `CHK`, `CITA`, `TAREA`, `TIP`, `GUIA`, `DOC`, `REF`, `PROMPT`, `ART`, `NOTA`, `IDEA`, `LAB`, `PROY`, `MAP`, `SPEC`, `CONOC`, `LOG`, `LEGAL`, `PLANT`, `FRAG`. La fuente única de verdad es `META - Guideline oficial.md`.
+Naulux usa 20 prefijos (tipos documentales): `META`, `CHK`, `CITA`, `TAREA`, `TIP`, `GUIA`, `DOC`, `REF`, `PROMPT`, `ART`, `NOTA`, `IDEA`, `LAB`, `PROY`, `MAP`, `SPEC`, `CONOC`, `LOG`, `LEGAL`, `PLANT`, `FRAG`. La fuente única de verdad es `- Meta/META - Guideline oficial.md`.
 
 ## Estructura del proyecto
 
 ```
 naulux/
-├── AGENTS.md              ← Instrucciones del agente
-├── META - Guideline oficial.md   ← Taxonomía y reglas
-├── META - Estructura de Carpetas.md  ← Reglas de ubicación
-├── 0_DatosBrutos/      ← Documentos pendientes de procesar
-│   └── _procesados/       ← Originales ya procesados
-├── 1_DatosProcesados/      ← Documentos ya clasificados y estructurados
+├── AGENTS.md                  ← Instrucciones del agente
+├── README.md
+├── - Meta/                    ← Archivos del sistema de la bóveda
+│   ├── META - Guideline oficial.md
+│   └── META - Estructura de Carpetas.md
+├── 0_DatosBrutos/             ← Documentos pendientes de procesar
+│   └── _procesados/           ← Originales ya procesados
+├── 1_DatosProcesados/         ← Documentos ya clasificados y estructurados
 │   ├── CiberSeguridad/
 │   ├── Crecimiento/
 │   ├── IA/
 │   └── ...
-└── README.md
+└── ...
 ```

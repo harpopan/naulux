@@ -8,7 +8,7 @@ estado: borrador
 # META — Procesado automático de documentos
 
 > [!summary] Resumen
-> Análisis de opciones para que el pipeline Nautilus procese documentos de forma autónoma en cuanto aparecen en `documentos_bruto/`, sin necesidad de ejecutar `procesa` manualmente.
+> Análisis de opciones para que el pipeline Naulux procese documentos de forma autónoma en cuanto aparecen en `0_DatosBrutos/`, sin necesidad de ejecutar `procesa` manualmente.
 
 ---
 
@@ -24,7 +24,7 @@ Un comando `procesa --watch` que inicia un vigilante en la terminal usando `inot
 
 **Cómo funciona:**
 - Se lanza dentro de una sesión de opencode
-- Usa `inotifywait` (Linux) para monitorizar `documentos_bruto/`
+- Usa `inotifywait` (Linux) para monitorizar `0_DatosBrutos/`
 - Cuando detecta un archivo nuevo (evento `close_write` o `moved_to`), ejecuta el pipeline completo: leer, traducir, clasificar, estructurar y mover
 - El agente procesa los documentos en tiempo real
 
@@ -40,7 +40,7 @@ Un comando `procesa --watch` que inicia un vigilante en la terminal usando `inot
 
 **Implementación mínima:**
 ```bash
-inotifywait -m documentos_bruto/ -e close_write -e moved_to |
+inotifywait -m 0_DatosBrutos/ -e close_write -e moved_to |
   while read dir action file; do
     echo "procesa \"$file\""
   done
@@ -103,13 +103,13 @@ Un script ligero que solo avisa cuando llega algo nuevo y el agente se encarga d
 **Ejemplo de script notificador:**
 ```bash
 #!/bin/bash
-inotifywait -m ~/nautilus-agents-workers/documentos_bruto/ \
+inotifywait -m 0_DatosBrutos/ \
   -e close_write -e moved_to --format '%f' |
   while read file; do
     [[ "$file" == _procesados/* ]] && continue
     echo "[$(date +%H:%M)] Nuevo documento: $file"
     echo "→ Ejecuta: procesa \"$file\""
-    notify-send "Nautilus" "Nuevo documento: $file" 2>/dev/null || true
+    notify-send "Naulux" "Nuevo documento: $file" 2>/dev/null || true
   done
 ```
 
@@ -117,15 +117,15 @@ inotifywait -m ~/nautilus-agents-workers/documentos_bruto/ \
 
 ## Opción 4 — GitHub Actions (si el repo está en GitHub)
 
-Un workflow que se ejecute al hacer push a `documentos_bruto/`.
+Un workflow que se ejecute al hacer push a `0_DatosBrutos/`.
 
 **Cómo funciona:**
-- Trigger: `on: push: paths: ['documentos_bruto/**']`
+- Trigger: `on: push: paths: ['0_DatosBrutos/**']`
 - El workflow ejecuta un script que:
   - Detecta los archivos nuevos respecto al commit anterior
   - Llama a una API de LLM (con secret almacenado en GitHub Secrets)
   - Traduce, clasifica y estructura
-  - Hace commit del resultado en `camara_procesada/`
+  - Hace commit del resultado en `1_DatosProcesados/`
 
 **Ventajas:**
 - Automatización total sin necesidad de tener nada corriendo en local
