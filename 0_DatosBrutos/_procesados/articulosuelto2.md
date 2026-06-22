@@ -1,9 +1,0 @@
-. A CTO who hired engineers at Meta-level salaries told me: “The $70k developer gets paid for execution. The $700k developer gets paid for reducing uncertainty.” That’s the sentence nobody wants to hear. Beginners think income scales with coding speed. It doesn’t. At the top level, companies pay absurd money to the people who make expensive decisions feel safe.
-
-2. He showed me two engineers during a production crisis. The first one wrote code nonstop for nine hours. The second barely touched the keyboard for most of the meeting. Instead, she asked three questions nobody else considered: “What breaks if we rollback?” “Which customer segment notices first?” “What dependency are we assuming is stable?” Her questions prevented a cascading outage that would’ve cost millions. She wrote less code than everyone there — and became the most valuable person in the room.
-
-3. “Junior developers solve tickets,” he said. “Elite developers remove entire categories of future problems.” That’s why the salary gap becomes insane. One engineer saves a sprint. Another changes the architecture so the next three years become cheaper, faster, and safer. Companies don’t reward effort proportionally. They reward risk reduction.
-
-4. The weirdest part: high-income developers often look slower. Longer pauses. Fewer commits. More diagrams. More silence in meetings. One principal engineer at a cloud company delayed a launch for six days because a scaling assumption “felt emotionally wrong.” Everyone pushed back. Two weeks later, traffic spikes proved he was right. That six-day delay prevented a multi-region collapse.
-
-5. His final line explained the entire industry: “At lower levels, people pay for your hands. At higher levels, they pay for your judgment.” The reason most developers never reach the top isn’t lack of intelligence. It’s that they stay addicted to proving they can code — instead of proving they can think.
