@@ -1,5 +1,5 @@
 ---
-version: 2.4
+version: 2.5
 estado: activo
 ---
 # Sistema de Organizacion de Vivero (Markdown) - V2
@@ -8,6 +8,7 @@ estado: activo
 > Esta V2 reduce la taxonomia a un conjunto pequeno y estable de tipos documentales.
 > La regla principal es que el prefijo solo debe expresar que es el documento, nunca la herramienta, el tema, el estado ni la fuente.
 > Esta revision anade el tipo `TIP` para consejos practicos, la justificacion del registro actual y un mapeado alternativo completo en castellano para comparar criterios.
+> La V2.5 anade los tipos temporales `PEND` y `SAM` para el flujo de trabajo de documentos pendientes de revision y exports de la extension Samjoko.
 > El anexo final incluye una tabla completa de renombrado sugerido para los Markdown actuales de la boveda.
 
 ## Objetivo
@@ -38,6 +39,15 @@ Ejemplos correctos:
 - `PROMPT - Fotor.md`
 - `IDEA - Akkoro.md`
 - `TIP - Natacion Aguas Abiertas.md`
+
+### Excepcion temporal: `PEND` y `SAM`
+
+`PEND` y `SAM` son prefijos de proceso, no tipos documentales permanentes. Indican que un documento esta pendiente de revision y clasificacion. **Deben desaparecer** una vez el documento sea revisado, renombrado con su tipo real y movido a su carpeta.
+
+- `PEND` → documentos anadidos manualmente a la boveda, sin clasificar
+- `SAM` → documentos exportados desde la extension Samjoko
+
+Ambos prefijos conviven temporalmente en la raiz hasta que se procesen.
 
 ## Formato base
 
@@ -75,6 +85,8 @@ Reglas operativas:
 | `LEGAL` | ✅ Licencias, avisos legales, condiciones de uso | 🚫 Documentacion tecnica general |
 | `PLANT` | ✅ Plantilla reutilizable | 🚫 Documento de trabajo real |
 | `FRAG` | ✅ Fragmento breve reutilizable | 🚫 Documentos largos o con contexto amplio |
+| `PEND` | ✅ Prefijo temporal para documentos pendientes de revision, clasificacion y ubicacion definitiva | 🚫 Documentos ya revisados o en su carpeta correcta |
+| `SAM` | ✅ Prefijo temporal para documentos exportados desde la extension Samjoko, pendientes de clasificar | 🚫 Documentos ya procesados y movidos a su carpeta |
 
 ## Justificacion de la taxonomia actual
 
@@ -101,6 +113,32 @@ Si la boveda va a usarse solo en castellano, una taxonomia castellanizada comple
 | "Guia metodologica completa de como estudiar" | `GUIA` |
 
 Los tips deben ser accionables: "Haz X" / "Evita Y porque Z". Si el tip es un paso de un proceso mayor, probablemente pertenece a una `GUIA`.
+
+## Flujo de trabajo con pendientes (V2.5)
+
+### Ciclo de vida de un documento pendiente
+
+1. **Captura** → el documento entra en la boveda con prefijo `PEND` o `SAM` y se ubica en la raiz
+2. **Revision** → se abre el documento, se evalua su contenido y se le asigna su tipo documental real
+3. **Clasificacion** → se renombra con el tipo correcto, se completa el frontmatter y se mueve a su carpeta tematica
+
+### Reglas para `PEND` y `SAM`
+
+- Ambos conviven en la raiz hasta que se procesen
+- `PEND` es para documentos anadidos manualmente
+- `SAM` es para exports automaticos de la extension Samjoko
+- Ambos desaparecen al completar el ciclo de revision
+- Si un documento `SAM` ya esta claro, puede ir directamente a su carpeta con su tipo real sin pasar por `PEND`
+
+### Ejemplo
+
+```
+PEND - Articulo Natacion.md          → (raiz, pendiente)
+SAM - Tutorial Linux.md              → (raiz, pendiente)
+...revision...
+GUIA - Natacion Aguas Abiertas.md    → Salud/
+DOC - Tutorial Linux Básico.md       → Desarrollo/
+```
 
 ## Convenciones obligatorias
 
